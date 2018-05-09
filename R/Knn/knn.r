@@ -10,6 +10,18 @@ knn <- function(dataset, query, k=3) {
 
 	# Aplica a distancia euclidiana do query com todos valores da entrada X
 	Euclidean = apply(X, 1, function(x) {sqrt(sum((x-query)^2))})
-	ids = sort.list(Euclidean, dec=F)[1:k] # Pega as 3 menores distancias
+	ids = sort.list(Euclidean, dec=F)[1:k] # Pega as posições das 3 menores distancias
 
+	# Cria ret para ser retornado
+	ret = list()
+	ret$possible = unique(Y[ids]) # Pega os possiveis valores de Y(sem repetir)
+	ret$votes = rep(0, length(ret$possible)) # Cria um vetor de 0 para representar cada possibilidade
+	counter = 1
+
+	# Conta quantas vezes cada valor possivel apareceu
+	for (c in ret$possible) {
+		ret$votes[counter] = sum(Y[ids] == c)
+		counter = counter + 1
+	}
+	return(ret)
 }
