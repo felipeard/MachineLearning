@@ -23,5 +23,6 @@ knn <- function(dataset, query, k=3) {
 		ret$votes[counter] = sum(Y[ids] == c)
 		counter = counter + 1
 	}
+	# retorna ret com os valores possiveis e qual possui mais votos
 	return(ret)
 }
