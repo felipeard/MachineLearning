@@ -1,2 +1,2 @@
 # MachineLearning
-Codes done during machine learning course on ICMC USP São Carlos at 7 semester
+Códigos dos algoritmos de Machine Learning em R feito pelo professor Rodrigo Mello em sala de aula.
